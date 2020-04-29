@@ -2,7 +2,7 @@
 "# Product_demo" 
 "# Product_demo" 
 
-# ****Application for Basic Authorazation using Spring boot***
+# ****Application for Basic Authentication using Spring boot***
 # API Endpoint url
 http://localhost:8080/product/api/banking/getproductdetails
 
