@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.product.demo.model.Product;
 import com.product.demo.service.ProductService;
+import com.product.demo.model.Response;
 
 
 
@@ -26,27 +27,21 @@ public class ProductController
 	ProductService productService;
     
     @GetMapping(value = "{domain}/getproductdetails")
-    public ResponseEntity<List<Product>> getProductDetails(@PathVariable("domain") String domain) 
-    {
-    	List<Product> productData =  productService.getProductDetails();
-    	/*Product product = new Product(23, "Test","banking");
-    	Product product1 = new Product(23, "Test2","Retail");
-    	productData.add(product);	
-    	productData.add(product1);	*/
-    	if (productData.isEmpty()) {
-            return new ResponseEntity(HttpStatus.NO_CONTENT);
-            // You many decide to return HttpStatus.NOT_FOUND
-        }
-        return new ResponseEntity<List<Product>>(productData, HttpStatus.OK);
+    public Response getProductDetails(@PathVariable("domain") String domain)  {
+    	List<Product> productData = productService.getProductDetails();
+		if (productData.isEmpty()) {
+			return new Response(HttpStatus.NO_CONTENT, null);
+		}
+		return new Response(HttpStatus.OK, productData);
         
     }
     
     @GetMapping(path="{domain}/getproductconfig")
-    public ResponseEntity<List<String>> getProductConfig(@PathVariable("domain") String domain) 
-    {
+    public  Response getProductConfig(@PathVariable("domain") String domain) {
     	ArrayList<String> list = new ArrayList<>();
-    	list.add("DummyData");
-    	return new ResponseEntity<List<String>>(list, HttpStatus.OK);
+		list.add("DummyData");
+		Response result = new Response(HttpStatus.OK, list);
+		return result;
     }
     
 }
