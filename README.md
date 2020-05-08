@@ -8,7 +8,7 @@ http://localhost:8080/product/api/{domian}/getproductdetails
 EX ::
 http://localhost:8080/product/api/banking/getproductdetails
 
-Pls use the postman testing above endpoint with Basic Auth
+Pls use the postman or google chrome testing above endpoint with Basic Auth
 
 ### User name :: admin 
 ### Password :: password
