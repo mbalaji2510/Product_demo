@@ -23,6 +23,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter
     public void configureGlobal(AuthenticationManagerBuilder auth) 
             throws Exception 
     {
+        //security authentication
         auth.inMemoryAuthentication().withUser("admin").password("{noop}password").roles("USER");
     }
 }
